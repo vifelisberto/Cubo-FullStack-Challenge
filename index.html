@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Full-Stack Challenge - Vinícius Felisberto</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- style="background: url(layout-onepage.png); background-size: cover;"> -->
+<body>
+    <header>
+        <form method="POST" action="#" autocomplete="off">
+            <div class="inputs">
+                <input id="firstName" type="text" name="firstName" placeholder="First Name" maxlength="255" title="First Name"
+                    required>
+                <input id="lastName" type="text" name="lastName" placeholder="Last Name" maxlength="255" title="Last Name"
+                    required>
+                <input id="participation" type="number" name="participation" placeholder="Participation" min="0" max="100"
+                    title="Participation" required pattern="[0-9]+$">
+
+                <button type="submit">SEND</button>
+            </div>
+        </form>
+    </header>
+
+    <section class="description">
+        <h1>DATA</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+
+    <section class="tableGraph">
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Participation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Vinicius</td>
+                        <td>Felisberto</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Vinicius</td>
+                        <td>Felisberto</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Vinicius</td>
+                        <td>Felisberto</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Vinicius</td>
+                        <td>Felisberto</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Vinicius</td>
+                        <td>Felisberto</td>
+                        <td>5%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="chart-container" style="position: relative; height: 35vh; width:35vw;">
+            <canvas id="myChart"></canvas>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script>
+        var data = {
+            labels: ["Test", "Test", "Test", "Test", "Test"],
+            datasets: [{
+                label: 's',
+                data: [12, 19, 3, 5, 2],
+                backgroundColor: [
+                    '#00b8e2',
+                    '#bcc3c7',
+                    '#15ba9a',
+                    '#e94a35',
+                    '#9c55b8'
+                ],
+
+                borderWidth: 3
+            }]
+        };
+
+        var options = {
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            },
+            legend: {
+                position: "right"
+            }
+
+
+        };
+
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myDoughnutChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+
+</html>

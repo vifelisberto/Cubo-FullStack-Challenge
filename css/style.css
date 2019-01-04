@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #394b50;
+    margin: 0 auto;
+}
+
+header {
+    height: 124px;
+    background-color: #00b8e2;
+}
+
+section.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1.7%;
+}
+
+section.description p {
+    margin-top: 0px;
+    margin-bottom: 2em;
+}
+
+section.tableGraph {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+div.table {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 431px;
+    margin-left: 17%;
+    text-align: center;
+    font-size: 13px;
+}
+
+div.table table {
+    border: solid 1px #cccccc;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+div.table table td, div.table table th {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+div.table table tr:hover {
+    background-color: #c4c4c4;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form div.inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 39px;
+    width: 60%;
+}
+
+form input {
+    width: 20%;
+    height: 20px;
+    margin: 0.5%;
+    padding: 10px;
+    border-radius: 2px;
+    border-width: 0;
+}
+
+form button {
+    width: 17%;
+    height: 40px;
+    padding: 10px;
+    border: solid white 1.4px;
+    border-radius: 2px;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
