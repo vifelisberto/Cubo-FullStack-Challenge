@@ -8,8 +8,9 @@
     <title>Full-Stack Challenge - Vinícius Felisberto</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<!-- style="background: url(layout-onepage.png); background-size: cover;"> -->
+
 <body>
+    <!-- style="background: url(layout-onepage.png); background-size: cover;"> -->
     <header>
         <form method="POST" action="#" autocomplete="off">
             <div class="inputs">
@@ -75,7 +76,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="chart-container" style="position: relative; height: 35vh; width:35vw;">
+        <div class="chart-container" style="position: relative; height: 28vh; width:28vw;margin-right: 212px;">
             <canvas id="myChart"></canvas>
         </div>
     </section>
@@ -94,7 +95,6 @@
                     '#e94a35',
                     '#9c55b8'
                 ],
-
                 borderWidth: 3
             }]
         };
@@ -109,7 +109,13 @@
                 }
             },
             legend: {
-                position: "right"
+                position: "right",
+                labels: {
+                    usePointStyle: true,
+                    fontSize: 17,
+                    padding: 15,
+                }
+
             }
 
 
