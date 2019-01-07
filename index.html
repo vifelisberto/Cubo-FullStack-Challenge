@@ -10,9 +10,8 @@
 </head>
 
 <body>
-    <!-- style="background: url(layout-onepage.png); background-size: cover;"> -->
     <header>
-        <form method="POST" action="#" autocomplete="off">
+        <form method="POST" action="#" onsubmit="return reload();" autocomplete="off">
             <div class="inputs">
                 <input id="firstName" type="text" name="firstName" placeholder="First Name" maxlength="255" title="First Name"
                     required>
@@ -43,36 +42,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Vinicius</td>
-                        <td>Felisberto</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Vinicius</td>
-                        <td>Felisberto</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Vinicius</td>
-                        <td>Felisberto</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Vinicius</td>
-                        <td>Felisberto</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Vinicius</td>
-                        <td>Felisberto</td>
-                        <td>5%</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
@@ -82,52 +51,7 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-    <script>
-        var data = {
-            labels: ["Test", "Test", "Test", "Test", "Test"],
-            datasets: [{
-                label: 's',
-                data: [12, 19, 3, 5, 2],
-                backgroundColor: [
-                    '#00b8e2',
-                    '#bcc3c7',
-                    '#15ba9a',
-                    '#e94a35',
-                    '#9c55b8'
-                ],
-                borderWidth: 3
-            }]
-        };
-
-        var options = {
-            layout: {
-                padding: {
-                    left: 50,
-                    right: 0,
-                    top: 0,
-                    bottom: 0
-                }
-            },
-            legend: {
-                position: "right",
-                labels: {
-                    usePointStyle: true,
-                    fontSize: 17,
-                    padding: 15,
-                }
-
-            }
-
-
-        };
-
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myDoughnutChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: data,
-            options: options
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
