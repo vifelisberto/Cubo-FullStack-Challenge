@@ -1,24 +1,15 @@
-// var getPromise = getData();
+(async () => {
+    await reload();
+})();
 
-// const getResult = await getPromise();
-
-// async function getData() {
-//     //get data
-
-//     return Promise()
-// }
-let participations = getData();
-
-initTable();
-initGraph();
-
-function getData() {
-    return [{ "id": 1, "firstName": "Vinicius", "lastName": "Felisberto", "participation": 30 },
-    { "id": 2, "firstName": "Vinicius", "lastName": "Felisberto", "participation": 50 }];
-}
-
-function initTable() {
+/**
+ * Mount Table
+ * @param {Array} participations - Data
+ * @returns {void}
+ */
+function initTable(participations) {
     let tbody = document.querySelector('div.table table tbody');
+    tbody.innerHTML = '';
 
     for (participation of participations) {
         let tr = document.createElement("tr");
@@ -42,12 +33,17 @@ function initTable() {
     }
 }
 
-function initGraph(){
+/**
+ * Mount graph
+ * @param {Array} participations - Data
+ * @returns {void}
+ */
+function initGraph(participations) {
     let names = participations.map(function (item) { return item.firstName; });
     let percentage = participations.map(function (item) { return item.participation; });
     let colors = [];
-    
-    for(let i = 0; i < participations.length; i++) {
+
+    for (let i = 0; i < participations.length; i++) {
         colors.push(getRandomColor());
     }
 
@@ -89,22 +85,38 @@ function initGraph(){
     });
 }
 
-function reload(){
-    participations = getData();
+async function reload() {
+    let participations = await getData();
 
-    initTable();
-    initGraph();
+    if (participations && participations.Count > 0) {
+        initTable(participations.Items);
+        initGraph(participations.Items);
+    } else {
+
+    }
 }
 
 /**
- * reference https://stackoverflow.com/questions/1484506/random-color-generator
+ * Get data for API
+ * @returns {Array} Array the participations
+ */
+async function getData() {
+    let response = await fetch('https://p2qeldjm6f.execute-api.us-east-1.amazonaws.com/dev/');
+    const json = await response.json();
+
+    return json;
+}
+
+/**
+ * Random Color
+ * - Reference:e https://stackoverflow.com/questions/1484506/random-color-generator
+ * @returns {String} color random
  */
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-  }
-  
+}
