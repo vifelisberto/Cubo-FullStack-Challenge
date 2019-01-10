@@ -42,6 +42,7 @@ function initTable(participations) {
         participationTd.innerText = `${participation.participation}%`;
         spanDelete.className = 'delete-icon';
         spanDelete.onclick = async () => {
+            debugger;
             await deleteItem(participation.id, spanDelete);
             await reload();
         };
@@ -119,11 +120,25 @@ function initGraph(participations) {
 
 async function reload() {
     let participations = await getData();
-
+    let section = document.querySelector('body > section.tableGraph');
     if (participations && participations.Count > 0) {
+        section.style.display = 'flex';
+
+        let span = document.getElementById('spanWarning');
+        if (span)
+            span.parentElement.removeChild(span);
+
         initTable(participations.Items);
         initGraph(participations.Items);
     } else {
+        section.style.display = 'none';
+        let sectionDesc = document.querySelector('body > section.description');
+        let span = document.createElement('span');
+        span.id = 'spanWarning';
+        span.innerText = 'Please enter participation!';
+        span.style.color = '#e8a115';
+
+        sectionDesc.parentNode.insertBefore(span, sectionDesc.nextSibling);
 
     }
 }
