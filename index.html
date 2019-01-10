@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <form method="POST" action="https://p2qeldjm6f.execute-api.us-east-1.amazonaws.com/dev" onsubmit="reload();" autocomplete="off">
+        <form method="POST" id="formParticipation" autocomplete="off">
             <div class="inputs">
                 <input id="firstName" type="text" name="firstName" placeholder="First Name" maxlength="255" title="First Name"
                     required>
@@ -20,7 +20,7 @@
                 <input id="participation" type="number" name="participation" placeholder="Participation" min="0" max="100"
                     title="Participation" required pattern="[0-9]+$">
 
-                <button type="submit">SEND</button>
+                <button id="btnForm" type="submit">SEND</button>
             </div>
         </form>
     </header>
@@ -39,6 +39,7 @@
                         <th>First name</th>
                         <th>Last name</th>
                         <th>Participation</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,8 +51,8 @@
         </div>
     </section>
 
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-    <script defer src="js/script.js"></script>
+    <script async src="js/chart.min.js"></script>
+    <script async src="js/script.js"></script>
 </body>
 
 </html>
