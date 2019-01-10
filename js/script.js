@@ -9,7 +9,6 @@ let graph;
     let form = document.getElementById('formParticipation');
     form.onsubmit = async (event) => {
         event.preventDefault();
-        console.log("ä")
         await postData();
     };
 
@@ -42,7 +41,6 @@ function initTable(participations) {
         participationTd.innerText = `${participation.participation}%`;
         spanDelete.className = 'delete-icon';
         spanDelete.onclick = async () => {
-            debugger;
             await deleteItem(participation.id, spanDelete);
             await reload();
         };
