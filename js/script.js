@@ -116,6 +116,10 @@ function initGraph(participations) {
     }
 }
 
+/**
+ * Reload data the table and graph
+ * @returns {voide}
+ */
 async function reload() {
     let participations = await getData();
     let section = document.querySelector('body > section.tableGraph');
@@ -137,7 +141,6 @@ async function reload() {
         span.style.color = '#e8a115';
 
         sectionDesc.parentNode.insertBefore(span, sectionDesc.nextSibling);
-
     }
 }
 
@@ -165,21 +168,32 @@ async function postData() {
         },
         body: JSON.stringify({ 'firstName': firstName.value, 'lastName': lastName.value, 'participation': Number(participation.value) })
     });
+
     const status = await response.status;
-    if (status !== 201)
-        alert('error insert');
+    debugger;
+    if (status !== 201) {
+        let responseJson = await response.json();
+        if (responseJson.message) {
+            if (responseJson.message === 'limit max participation.')
+                alert('limit participation reached!');
+            else if (responseJson.message === 'value participation is invalid.')
+                alert(responseJson.message);
+            else
+                alert('error insert');
+        }
+    }
     else {
         await reload();
-
-        firstName.value = '';
-        lastName.value = '';
-        participation.value = '';
-
-        btnForm.disabled = false;
-        btnForm.className = '';
-        btnForm.style.opacity = '1';
-        form.forEach((input) => { input.disabled = false });
     }
+
+    firstName.value = '';
+    lastName.value = '';
+    participation.value = '';
+
+    btnForm.disabled = false;
+    btnForm.className = '';
+    btnForm.style.opacity = '1';
+    form.forEach((input) => { input.disabled = false });
 }
 
 /**
@@ -225,6 +239,10 @@ function getRandomColor() {
     return color;
 }
 
+/**
+ * 
+ * @param {Chart} chart Instance graph
+ */
 function removeData(chart) {
     chart.data.labels.pop();
     chart.data.datasets.forEach((dataset) => {
@@ -233,6 +251,11 @@ function removeData(chart) {
     chart.update();
 }
 
+/**
+ * 
+ * @param {Chart} chart  Instance graph
+ * @param {Object} data Data graph
+ */
 function addData(chart, data) {
     chart.data = data;
     chart.update();
