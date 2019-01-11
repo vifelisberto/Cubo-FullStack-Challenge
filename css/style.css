@@ -1,3 +1,21 @@
+/* reference https://github.com/vifelisberto/button-spin */
+@-webkit-keyframes signin-spin {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+@keyframes signin-spin {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #394b50;
@@ -86,22 +104,11 @@ form button {
     font-size: 14px;
 }
 
-/* reference https://github.com/vifelisberto/button-spin */
-@-webkit-keyframes signin-spin {
-    from {
-        -webkit-transform: rotate(0deg)
-    }
-    to {
-        -webkit-transform: rotate(360deg)
-    }
-}
-@keyframes signin-spin {
-    from {
-        transform: rotate(0deg)
-    }
-    to {
-        transform: rotate(360deg)
-    }
+.chart-container {
+    position: relative;
+    height: 36vh;
+    width:36vw;
+    margin-right: 212px;
 }
 
 .signin-spinner-white::before {
