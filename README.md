@@ -2,6 +2,8 @@
 
 It consists of a register of participations, which are displayed for analysis in a table and graph.
 
+Add or drop participations!
+
 ## Getting Started
 
 * [GitHub Page](https://vifelisberto.github.io/Cubo-FullStack-Challenge/) - Click to watch and test
