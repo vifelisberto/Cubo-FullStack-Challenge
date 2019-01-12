@@ -175,7 +175,7 @@ async function postData() {
         let responseJson = await response.json();
         if (responseJson.message) {
             if (responseJson.message === 'limit max participation.')
-                alert('limit participation reached!');
+                alert('limit participation reached! Try a smaller amount if the sum of the shares did not reach 100%');
             else if (responseJson.message === 'value participation is invalid.')
                 alert(responseJson.message);
             else
