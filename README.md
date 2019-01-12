@@ -4,6 +4,8 @@ It consists of a register of participations, which are displayed for analysis in
 
 Add or drop participations!
 
+If you try to register with the sum of the existing ones, exceed 100%, you will not be able to register, as well as if the limit of 100% is reached, you will not be able to register as well.
+
 ## Getting Started
 
 * [GitHub Page](https://vifelisberto.github.io/Cubo-FullStack-Challenge/) - Click to watch and test
